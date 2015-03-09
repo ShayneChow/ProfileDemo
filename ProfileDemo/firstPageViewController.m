@@ -11,6 +11,7 @@
 #import "News.h"
 
 #define SectionHeaderHeight 40.0
+#define ScreenWidth [UIScreen mainScreen].bounds.size.width // 获取屏幕宽度
 
 @interface firstPageViewController ()<UITableViewDataSource, UITableViewDelegate>{
     UITableView     *_tableView;
@@ -45,6 +46,12 @@
     _tableView.delegate=self;
     
     [self.view addSubview:_tableView];
+    
+    UIImageView *titleImage=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 185)];
+    titleImage.image=[UIImage imageNamed:@"t1"];
+    [_tableView setTableHeaderView:titleImage];
+    
+    _tableView.separatorStyle=UITableViewCellSeparatorStyleNone;    // 去掉 cell 间的分割线
 }
 
 - (void)initData{
@@ -75,7 +82,7 @@
     
     News *news = _news[indexPath.row];
     cell.news = news;
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", @(indexPath.section), @(indexPath.row)];
+    
     return cell;
 }
 

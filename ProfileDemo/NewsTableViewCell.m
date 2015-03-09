@@ -60,6 +60,11 @@
     _newsDate.textColor = [UIColor colorWithRed:23/255.0 green:180/255.0 blue:237/255.0 alpha:1];
     _newsDate.font = [UIFont systemFontOfSize:12];
     [self addSubview:_newsDate];
+    
+    // 自定义分隔线
+    UIView *cellLine = [[UIView alloc] initWithFrame:CGRectMake(kPending, kRowHeight-0.5, kScreenWidth-2*kPending, 0.5)];    // 分割线
+    cellLine.backgroundColor = [UIColor grayColor];
+    [self addSubview:cellLine];
 }
 
 #pragma mark --设置新闻News的frame
@@ -88,6 +93,7 @@
     CGRect newsDateRect = CGRectMake(newsDateX, newsDateY, kDateWidth, kDateHeight);
     _newsDate.text = news.newsDate;
     _newsDate.frame = newsDateRect;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
