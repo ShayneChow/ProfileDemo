@@ -9,6 +9,7 @@
 #import "firstPageViewController.h"
 #import "NewsTableViewCell.h"
 #import "News.h"
+#import "PageDetailViewController.h"
 
 #define SectionHeaderHeight 40.0
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width // 获取屏幕宽度
@@ -128,6 +129,21 @@
     return view;
 }
 
+#pragma mark 选中cell时调用
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    // 0.获取选中的cell对象
+    News *news = _news[indexPath.row];
+    NSLog(@"%@ -- %@", news.newsTitle, news.newsDate);
+    
+    PageDetailViewController *pageDetailViewController = [[PageDetailViewController alloc] init];
+    
+    pageDetailViewController.detailURL = [[NSURL alloc] initWithString:news.newsURL];
+    pageDetailViewController.detailDesc = news.newsDesc;
+    pageDetailViewController.detailImage = news.newsImage;
+    pageDetailViewController.detailDate = news.newsDate;
+    pageDetailViewController.detailTitle = news.newsTitle;
+    [self.navigationController pushViewController:pageDetailViewController animated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

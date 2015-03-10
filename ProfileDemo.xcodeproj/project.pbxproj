@@ -34,6 +34,7 @@
 		262D50291AADA00400ACCCD5 /* t1.png in Resources */ = {isa = PBXBuildFile; fileRef = 262D50231AADA00400ACCCD5 /* t1.png */; };
 		262D502A1AADA00400ACCCD5 /* t2.png in Resources */ = {isa = PBXBuildFile; fileRef = 262D50241AADA00400ACCCD5 /* t2.png */; };
 		262D502B1AADA00400ACCCD5 /* t3.png in Resources */ = {isa = PBXBuildFile; fileRef = 262D50251AADA00400ACCCD5 /* t3.png */; };
+		262D502E1AAE98B200ACCCD5 /* PageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 262D502D1AAE98B200ACCCD5 /* PageDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,8 @@
 		262D50231AADA00400ACCCD5 /* t1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = t1.png; sourceTree = "<group>"; };
 		262D50241AADA00400ACCCD5 /* t2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = t2.png; sourceTree = "<group>"; };
 		262D50251AADA00400ACCCD5 /* t3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = t3.png; sourceTree = "<group>"; };
+		262D502C1AAE98B200ACCCD5 /* PageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageDetailViewController.h; sourceTree = "<group>"; };
+		262D502D1AAE98B200ACCCD5 /* PageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +180,8 @@
 			children = (
 				262D4FF41AAD7EB900ACCCD5 /* firstPageViewController.h */,
 				262D4FF51AAD7EB900ACCCD5 /* firstPageViewController.m */,
+				262D502C1AAE98B200ACCCD5 /* PageDetailViewController.h */,
+				262D502D1AAE98B200ACCCD5 /* PageDetailViewController.m */,
 				262D50171AAD993E00ACCCD5 /* News.h */,
 				262D50181AAD993E00ACCCD5 /* News.m */,
 				262D501A1AAD996B00ACCCD5 /* NewsTableViewCell.h */,
@@ -361,6 +366,7 @@
 				262D501C1AAD996B00ACCCD5 /* NewsTableViewCell.m in Sources */,
 				262D4FCE1AAD7D9F00ACCCD5 /* main.m in Sources */,
 				262D50191AAD993E00ACCCD5 /* News.m in Sources */,
+				262D502E1AAE98B200ACCCD5 /* PageDetailViewController.m in Sources */,
 				262D4FFC1AAD7EB900ACCCD5 /* thirdPageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
