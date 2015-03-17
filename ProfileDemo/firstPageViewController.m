@@ -49,7 +49,7 @@
     [self.view addSubview:_tableView];
     
     UIImageView *titleImage=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 185)];
-    titleImage.image=[UIImage imageNamed:@"t1"];
+    titleImage.image=[UIImage imageNamed:@"icon"];
     [_tableView setTableHeaderView:titleImage];
     
     _tableView.separatorStyle=UITableViewCellSeparatorStyleNone;    // 去掉 cell 间的分割线
