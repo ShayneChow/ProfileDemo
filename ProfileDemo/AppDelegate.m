@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "MainTabBarViewController.h"
+#import "AFNetworkActivityIndicatorManager.h"
+
 
 @interface AppDelegate ()
 
@@ -25,6 +27,9 @@
     self.window.rootViewController = mainTabBarViewController;
     
     [self.window makeKeyAndVisible];
+    
+    [AFNetworkActivityIndicatorManager sharedManager].enabled =YES; // 网络加载时状态栏加载标记滚动
+    
     return YES;
 }
 

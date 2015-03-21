@@ -19,5 +19,6 @@
 @property (nonatomic, retain) UILabel *titleLabel;// 显示的title
 @property (nonatomic, retain) UILabel *dateLabel;// 显示的date
 @property (nonatomic, retain) UILabel *contentText;// 显示的主内容
+@property (nonatomic, retain) UIImageView *imageView;// 显示的主内容
 
 @end

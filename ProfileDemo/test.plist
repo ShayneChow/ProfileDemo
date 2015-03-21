@@ -6,7 +6,7 @@
 		<key>title</key>
 		<string>带你装逼，带你飞！</string>
 		<key>image</key>
-		<string>l1</string>
+		<string>aboutthisblog/about.jpg</string>
 		<key>desc</key>
 		<string>当需要开发者手动适配的时候，跟 iPhone 4 过渡到 iPhone 5 一样.在新程序中，指定一张新的启动图片。当指定了启动图，屏幕分辨率就已经变成应有的大小，这时候利用 AutoLayout 进行布局。</string>
 		<key>url</key>
@@ -18,7 +18,7 @@
 		<key>title</key>
 		<string>分店开业，惊喜不断。</string>
 		<key>image</key>
-		<string>l2</string>
+		<string>lee/lee01.png</string>
 		<key>desc</key>
 		<string>接下来就定义一个KCStatusTableViewCell实现UITableViewCell,跟 iPhone 4 过渡到 iPhone 5 一样.在新程序中，指定一张新的启动图片。</string>
 		<key>url</key>
@@ -30,7 +30,7 @@
 		<key>title</key>
 		<string>2015，够重你就来！</string>
 		<key>image</key>
-		<string>l3</string>
+		<string>lee/lee04.png</string>
 		<key>desc</key>
 		<string>在新程序中，指定一张新的启动图片。当指定了启动图，屏幕分辨率就已经变成应有的大小，这时候利用 AutoLayout 进行布局。</string>
 		<key>url</key>
@@ -42,7 +42,7 @@
 		<key>title</key>
 		<string>怎么能不新鲜？！</string>
 		<key>image</key>
-		<string>t1</string>
+		<string>lee/lee07.png</string>
 		<key>desc</key>
 		<string>当需要开发者手动适配的时候，跟 iPhone 4 过渡到 iPhone 5 一样.在新程序中，指定一张新的启动图片。当指定了启动图，屏幕分辨率就已经变成应有的大小，这时候利用 AutoLayout 进行布局。</string>
 		<key>url</key>
@@ -54,7 +54,7 @@
 		<key>title</key>
 		<string>这又要选个什么标题呢</string>
 		<key>image</key>
-		<string>t2</string>
+		<string>macminiupdate/mac01.png</string>
 		<key>desc</key>
 		<string>当需要开发者手动适配的时候，跟 iPhone 4 过渡到 iPhone 5 一样.在新程序中，指定一张新的启动图片。当指定了启动图，屏幕分辨率就已经变成应有的大小，这时候利用 AutoLayout 进行布局。</string>
 		<key>url</key>
@@ -66,7 +66,7 @@
 		<key>title</key>
 		<string>标题一定要非常非常的长长长长</string>
 		<key>image</key>
-		<string>t3</string>
+		<string>macminiupdate/mac04.png</string>
 		<key>desc</key>
 		<string>当需要开发者手动适配的时候，跟 iPhone 4 过渡到 iPhone 5 一样.在新程序中，指定一张新的启动图片。当指定了启动图，屏幕分辨率就已经变成应有的大小，这时候利用 AutoLayout 进行布局。</string>
 		<key>url</key>
@@ -78,7 +78,7 @@
 		<key>title</key>
 		<string>come, go for it.</string>
 		<key>image</key>
-		<string>l1</string>
+		<string>macminiupdate/mac07.png</string>
 		<key>desc</key>
 		<string>当需要开发者手动适配的时候，跟 iPhone 4 过渡到 iPhone 5 一样.在新程序中，指定一张新的启动图片。当指定了启动图，屏幕分辨率就已经变成应有的大小，这时候利用 AutoLayout 进行布局。</string>
 		<key>url</key>
@@ -90,7 +90,7 @@
 		<key>title</key>
 		<string>一二三四五六七八九十</string>
 		<key>image</key>
-		<string>l2</string>
+		<string>macminiupdate/mac09.png</string>
 		<key>desc</key>
 		<string>当需要开发者手动适配的时候，跟 iPhone 4 过渡到 iPhone 5 一样.在新程序中，指定一张新的启动图片。当指定了启动图，屏幕分辨率就已经变成应有的大小，这时候利用 AutoLayout 进行布局。</string>
 		<key>url</key>

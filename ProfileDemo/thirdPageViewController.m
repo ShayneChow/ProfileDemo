@@ -86,7 +86,7 @@
     // 异步加载网络图片，采用 AFNetworking 库
     NSURL *url = [NSURL URLWithString:@"http://shaynechow.github.io/images/aboutthisblog/about.jpg"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    UIImage *placeholderImage = [UIImage imageNamed:@"icon"];
+    UIImage *placeholderImage = [UIImage imageNamed:@"avatar"];
     __weak UIImageView *weakImageView = userIconView;
     [weakImageView setImageWithURLRequest:request
                          placeholderImage:placeholderImage
@@ -185,7 +185,7 @@
         case 0:
             switch (indexPath.row) {
                 case 0:
-                    cell.imageView.image = [UIImage imageNamed:@"heart"];
+                    cell.imageView.image = [UIImage imageNamed:@"rating"];
                     cell.textLabel.text = @"我的收藏（2）";
 //                    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     break;
@@ -195,7 +195,7 @@
 //                    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     break;
                 default:
-                    cell.imageView.image = [UIImage imageNamed:@"usd"];
+                    cell.imageView.image = [UIImage imageNamed:@"info"];
                     cell.textLabel.text = @"我的卡券（2）";
 //                    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     break;

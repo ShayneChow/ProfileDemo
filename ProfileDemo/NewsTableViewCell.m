@@ -8,6 +8,7 @@
 
 #import "NewsTableViewCell.h"
 #import "News.h"
+#import "UIKit+AFNetworking.h"
 
 #define kPending 10.0
 #define kImageWidth kRowHeight-20.0
@@ -18,6 +19,8 @@
 #define kDescHeight kRowHeight-kTitleHeight-2.5*kPending
 #define kDateWidth 65.0
 #define kDateHeight kTitleHeight
+
+static NSString * const BaseURLString =@"http://shaynechow.github.io/images/";
 
 @interface NewsTableViewCell(){
     UIImageView *_newsImage;    //图片
@@ -72,7 +75,25 @@
     // 设置题图frame
     CGFloat newsImageX = kPending, newsImageY = kPending;
     CGRect newsImageRect = CGRectMake(newsImageX, newsImageY, kImageWidth, kImageHeight);
-    _newsImage.image = [UIImage imageNamed:news.newsImage];
+//    _newsImage.image = [UIImage imageNamed:news.newsImage];
+    _newsImage.contentMode = UIViewContentModeScaleAspectFit; // 图片显示模式：自适应大小
+    // 加载网络图片
+    NSString *string = [NSString stringWithFormat:@"%@%@", BaseURLString, news.newsImage];
+    NSURL *url = [NSURL URLWithString:string];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    UIImage *placeholderImage = [UIImage imageNamed:@"icon"];
+    __weak UIImageView *weakImageView = _newsImage;
+    [weakImageView setImageWithURLRequest:request
+                         placeholderImage:placeholderImage
+                                  success:^(NSURLRequest *request,
+                                            NSHTTPURLResponse *response,
+                                            UIImage *image) {
+                                      weakImageView.image = image;
+                                      [weakImageView setNeedsLayout];// setNeedsLayout:标记为需要重新布局，异步调用layoutIfNeeded刷新布局，不立即刷新，但layoutSubviews一定会被调用
+                                  }
+                                  failure:nil
+     ];
+    
     _newsImage.frame = newsImageRect;
     
     // 设置标题frame

@@ -7,9 +7,12 @@
 //
 
 #import "PageDetailViewController.h"
+#import "UIKit+AFNetworking.h"
 
 #define webViewWidth [UIScreen mainScreen].bounds.size.width // 获取屏幕宽度
 #define webViewHeight [UIScreen mainScreen].bounds.size.height// 定义WebView的高度
+
+static NSString * const BaseURLString =@"http://shaynechow.github.io/images/";
 
 @interface PageDetailViewController ()
 
@@ -29,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     [self initSubView];
     [self setSubView];
 }
@@ -57,8 +60,13 @@
     [self.view addSubview:_contentText];
     
     // 初始化 UIWebView
-    _detailWebView = [[UIWebView alloc] init];
-    [self.view addSubview:_detailWebView];
+//    _detailWebView = [[UIWebView alloc] init];
+//    [self.view addSubview:_detailWebView];
+    
+    // 初始化 UIImageView
+    _imageView = [[UIImageView alloc] init];
+//    _imageView.backgroundColor = [UIColor purpleColor];
+    [self.view addSubview:_imageView];
 }
 
 #pragma mark 设置视图frame
@@ -81,11 +89,36 @@
     _contentText.frame = contentTextRect;
     _contentText.text = _detailDesc;
     
-    // 设置 UIWebView 的frame
-    CGFloat webViewX = 0, webViewY = contentTextY+100.0;
-    CGRect webViewRect = CGRectMake(webViewX, webViewY, webViewWidth, webViewHeight);
-    _detailWebView.frame = webViewRect;
-    [_detailWebView loadRequest:[NSURLRequest requestWithURL:_detailURL]];
+//    // 设置 UIWebView 的frame
+//    CGFloat webViewX = 0, webViewY = contentTextY+100.0;
+//    CGRect webViewRect = CGRectMake(webViewX, webViewY, webViewWidth, webViewHeight);
+//    _detailWebView.frame = webViewRect;
+//    [_detailWebView loadRequest:[NSURLRequest requestWithURL:_detailURL]];
+    
+    // 显示网络图片
+    CGFloat imageViewX = 0, imageViewY = contentTextY+100.0;
+    CGRect imageViewRect = CGRectMake(imageViewX, imageViewY, webViewWidth, webViewWidth*0.8);
+    _imageView.frame = imageViewRect;
+    _imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    // 加载网络图片
+    NSString *string = [NSString stringWithFormat:@"%@%@", BaseURLString, _detailImage];
+    NSURL *url = [NSURL URLWithString:string];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    UIImage *placeholderImage = [UIImage imageNamed:@"icon"];
+    __weak UIImageView *weakImageView = _imageView;
+    [weakImageView setImageWithURLRequest:request
+                         placeholderImage:placeholderImage
+                                  success:^(NSURLRequest *request,
+                                            NSHTTPURLResponse *response,
+                                            UIImage *image) {
+                                      weakImageView.image = image;
+                                      [weakImageView setNeedsLayout];// setNeedsLayout:标记为需要重新布局，异步调用layoutIfNeeded刷新布局，不立即刷新，但layoutSubviews一定会被调用
+                                  }
+                                  failure:nil
+     ];
+    
+    NSLog(@"_detailImage的值:%@", _detailImage);
 }
 
 - (void)didReceiveMemoryWarning {
