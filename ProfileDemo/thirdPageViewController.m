@@ -7,6 +7,8 @@
 //
 
 #import "thirdPageViewController.h"
+#import "UserInfoViewController.h"
+#import "UIKit+AFNetworking.h"
 
 #define kHeaderViewHeight 120.0
 #define kScreen_Bounds [UIScreen mainScreen].bounds
@@ -69,13 +71,33 @@
     // 将 image 设置为圆形
     userIconView.layer.masksToBounds = YES;
     userIconView.layer.cornerRadius = userIconView.frame.size.width/2;
-    userIconView.layer.borderWidth = 1.0;
+    userIconView.layer.borderWidth = 1.5;
     userIconView.layer.borderColor = headerView.backgroundColor.CGColor;
+    userIconView.contentMode = UIViewContentModeScaleAspectFill; // 图片自适应填充模式
     
     //加载网络图片（同步加载，没有缓存，阻塞UI，实际开发中，应采用异步缓存加载）
-    NSURL *imageUrl = [NSURL URLWithString:@"http://shaynechow.github.io/images/aboutthisblog/about.jpg"];
-    UIImage *userIconImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageUrl]];
-    userIconView.image = userIconImage;
+//    NSURL *imageUrl = [NSURL URLWithString:@"http://shaynechow.github.io/images/aboutthisblog/about.jpg"];
+//    UIImage *userIconImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageUrl]];
+//    userIconView.image = userIconImage;
+//    [userIconView setImage]
+    
+//    userIconView.image = [UIImage imageNamed:@"icon"];
+    
+    // 异步加载网络图片，采用 AFNetworking 库
+    NSURL *url = [NSURL URLWithString:@"http://shaynechow.github.io/images/aboutthisblog/about.jpg"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    UIImage *placeholderImage = [UIImage imageNamed:@"icon"];
+    __weak UIImageView *weakImageView = userIconView;
+    [weakImageView setImageWithURLRequest:request
+                         placeholderImage:placeholderImage
+                                  success:^(NSURLRequest *request,
+                                            NSHTTPURLResponse *response,
+                                            UIImage *image) {
+                                      weakImageView.image = image;
+                                      [weakImageView setNeedsLayout];// setNeedsLayout:标记为需要重新布局，异步调用layoutIfNeeded刷新布局，不立即刷新，但layoutSubviews一定会被调用
+                                  }
+                                  failure:nil
+     ];
     
     [_headerView addSubview:userIconView];
     
@@ -112,7 +134,7 @@
     
     // 详情箭头 image
     UIImageView *arrowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"me_info_arrow_left"]];
-    [arrowImageView setCenter:CGPointMake(kScreen_Width-CGRectGetWidth(arrowImageView.frame)/2-5, 20+15+70/2)];
+    [arrowImageView setCenter:CGPointMake(kScreen_Width-CGRectGetWidth(arrowImageView.frame)/2-10, 20+15+70/2)];
     [_headerView addSubview:arrowImageView];
     
     // 表头视图响应点击事件
@@ -131,6 +153,9 @@
 
 - (void)SingleTap{
     NSLog(@"点击用户信息设置，跳转到信息设置界面。");
+    
+    UserInfoViewController *userInfoSettingView = [[UserInfoViewController alloc] init];
+    [self.navigationController pushViewController:userInfoSettingView animated:YES];
 }
 
 #pragma mark - TableView Delegate & DataSource
@@ -171,7 +196,7 @@
                     break;
                 default:
                     cell.imageView.image = [UIImage imageNamed:@"usd"];
-                    cell.textLabel.text = @"我的卡卷（2）";
+                    cell.textLabel.text = @"我的卡券（2）";
 //                    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     break;
             }
