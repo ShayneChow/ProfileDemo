@@ -55,7 +55,7 @@
     num = 3;
     aryImage = [[NSArray alloc] initWithObjects:@"blog", @"opinion", @"about", nil];    // 未选中时图片名
     arySelImage = [[NSArray alloc] initWithObjects:@"blog_sel", @"opinion_sel", @"about_sel", nil];// 选中时对应图片名
-    aryTitle = [[NSArray alloc] initWithObjects:@"Blog", @"Opinion", @"About", nil];    // TabBar 的标题
+    aryTitle = [[NSArray alloc] initWithObjects:@"Blog", @"Map", @"About", nil];    // TabBar 的标题
     
     //删除现有的tabBar
     CGRect rect = self.tabBar.frame;

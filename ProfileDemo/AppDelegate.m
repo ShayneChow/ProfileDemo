@@ -26,6 +26,13 @@
     MainTabBarViewController *mainTabBarViewController = [[MainTabBarViewController alloc] init];
     self.window.rootViewController = mainTabBarViewController;
     
+    _mapManager = [[BMKMapManager alloc]init];
+    // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
+    BOOL ret = [_mapManager start:@"Pz1Dhv1SiGcm2HDkRRwgE7id"  generalDelegate:nil];
+    if (!ret) {
+        NSLog(@"manager start failed!");
+    }
+    
     [self.window makeKeyAndVisible];
     
     [AFNetworkActivityIndicatorManager sharedManager].enabled =YES; // 网络加载时状态栏加载标记滚动
